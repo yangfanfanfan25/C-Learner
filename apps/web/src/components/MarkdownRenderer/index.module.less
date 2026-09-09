@@ -1,0 +1,150 @@
+.markdownContent {
+  font-size: 14px;
+  line-height: 1.5;
+  color: inherit;
+
+  /* 标题 */
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: inherit;
+  }
+
+  h1 { font-size: 20px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+  h4 { font-size: 15px; }
+
+  /* 段落 */
+  p {
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* 列表 */
+  ul, ol {
+    margin: 8px 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  /* 引用 */
+  blockquote {
+    margin: 8px 0;
+    padding: 8px 16px;
+    border-left: 3px solid #1677ff;
+    background: var(--glass-bg, rgba(0, 0, 0, 0.03));
+    border-radius: 4px;
+    color: var(--text-secondary, #666);
+  }
+
+  /* 表格 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color, #e5e5e5);
+    text-align: left;
+  }
+
+  th {
+    background: var(--bg-tertiary, #fafafa);
+    font-weight: 600;
+  }
+
+  tr:hover td {
+    background: var(--bg-hover, #f9f9f9);
+  }
+
+  /* 分割线 */
+  hr {
+    margin: 16px 0;
+    border: none;
+    border-top: 1px solid var(--border-color, #e5e5e5);
+  }
+
+  /* 链接 */
+  a {
+    color: #1677ff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* 图片 */
+  img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 8px 0;
+  }
+}
+
+/* 代码块样式 */
+.codeBlock {
+  margin: 8px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1e1e1e;
+}
+
+.codeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: #2d2d2d;
+  border-bottom: 1px solid #404040;
+}
+
+.codeLanguage {
+  font-size: 12px;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.copyCodeBtn {
+  font-size: 12px !important;
+  color: #aaa !important;
+  height: 24px !important;
+  padding: 0 8px !important;
+
+  &:hover {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+.codeBlock code {
+  display: block;
+  padding: 12px 16px;
+  overflow-x: auto;
+  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #d4d4d4;
+  background: transparent !important;
+}
+
+/* 行内代码 */
+.inlineCode {
+  padding: 2px 6px;
+  background: var(--inline-code-bg, #f0f0f0);
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+  font-size: 13px;
+  color: #e83e8c;
+}

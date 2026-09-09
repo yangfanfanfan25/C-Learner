@@ -1,0 +1,101 @@
+.messageRow {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 18px;
+  box-sizing: border-box;
+}
+
+.userRow {
+  justify-content: flex-end;
+}
+
+.bubble {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: min(720px, 78%);
+  padding: 13px 15px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(15, 23, 42, 0.38);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  width: fit-content;
+  backdrop-filter: blur(12px) saturate(115%);
+  -webkit-backdrop-filter: blur(12px) saturate(115%);
+}
+
+.messageStack {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.statusRow {
+  order: -1;
+  min-height: 26px;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+
+/* 出题生成过程实时流式面板（仅流式期间展示，结束后由试卷卡片接管） */
+.quizStreamWrap {
+  margin-bottom: 10px;
+}
+
+.quizStreamLabel {
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.quizStreamPanel {
+  margin: 0;
+  padding: 10px 12px;
+  max-height: 220px;
+  overflow: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+  font-family: 'SF Mono', Consolas, 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* assistant 消息占满整行，保持 markdown 宽排版 */
+.messageRow:not(.userRow) {
+  justify-content: flex-end;
+
+  .bubble {
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+.userRow .bubble {
+  color: #fff;
+  background: var(--bubble-user-bg);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+:global([data-theme='dark']) .bubble {
+  background: rgba(16, 19, 26, 0.58);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+:global([data-theme='dark']) .userRow .bubble {
+  background: rgba(42, 42, 42, 0.78);
+}
+
+@media (max-width: 760px) {
+  .bubble {
+    max-width: calc(100vw - 92px);
+  }
+}

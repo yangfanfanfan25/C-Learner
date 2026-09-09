@@ -1,0 +1,138 @@
+.card {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border: 0.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  font-size: 13px;
+  color: #333;
+}
+
+.head {
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  color: #8a8f98;
+  font-size: 12px;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.question {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(26, 26, 26, 0.04);
+}
+
+.questionHead {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.questionIndex {
+  flex-shrink: 0;
+  color: #1f6feb;
+  font-weight: 600;
+}
+
+.questionStem {
+  line-height: 1.5;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 20px;
+}
+
+.option {
+  display: flex;
+  gap: 4px;
+  color: #555;
+}
+
+.optionKey {
+  color: #8a8f98;
+}
+
+.expandBtn {
+  margin-top: 8px;
+  border: none;
+  background: none;
+  color: #1f6feb;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 0.5px solid #e6e8ec;
+  background: #fff;
+  color: #4a4f57;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+  background: rgba(26, 26, 26, 0.05);
+}
+
+.primaryBtn {
+  background: rgba(43, 127, 255, 0.12);
+  border-color: rgba(43, 127, 255, 0.3);
+  color: #1f6feb;
+}
+
+.primaryBtn:hover {
+  background: rgba(43, 127, 255, 0.2);
+}
+
+:global([data-theme='dark']) .card {
+  background: rgba(30, 32, 36, 0.9);
+  color: #e6e6e6;
+}
+
+:global([data-theme='dark']) .question {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+:global([data-theme='dark']) .option {
+  color: #b5b9c0;
+}
+
+:global([data-theme='dark']) .actionBtn {
+  background: #2a2d33;
+  border-color: #3a3f46;
+  color: #c6cad1;
+}

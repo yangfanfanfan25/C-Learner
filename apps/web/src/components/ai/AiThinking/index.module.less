@@ -1,0 +1,75 @@
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 24px;
+  padding: 3px 8px;
+  color: var(--text-secondary);
+}
+
+.icon {
+  flex: none;
+  color: #4bb5ff;
+  filter: drop-shadow(0 0 4px rgba(75, 181, 255, 0.72));
+  animation: status-spin 1.1s linear infinite;
+}
+
+.shimmer {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(
+    90deg,
+    #a1a1a1 0%,
+    #a1a1a1 30%,
+    rgba(161, 161, 161, 0.45) 45%,
+    rgba(161, 161, 161, 0.45) 55%,
+    #a1a1a1 70%,
+    #a1a1a1 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 0 8px rgba(75, 181, 255, 0.48);
+  filter: drop-shadow(0 0 4px rgba(75, 181, 255, 0.42));
+  animation: label-shine 2.25s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+}
+
+:global([data-theme='dark']) .icon {
+  color: #83d4ff;
+  filter: drop-shadow(0 0 6px rgba(83, 205, 255, 0.85));
+}
+
+:global([data-theme='dark']) .shimmer {
+  text-shadow: 0 0 10px rgba(83, 205, 255, 0.62);
+  filter: drop-shadow(0 0 6px rgba(83, 205, 255, 0.58));
+}
+
+@keyframes status-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes label-shine {
+  0%,
+  18% {
+    background-position: 100% 0;
+  }
+  82%,
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer {
+    animation: none;
+  }
+
+  .icon {
+    animation: none;
+  }
+}

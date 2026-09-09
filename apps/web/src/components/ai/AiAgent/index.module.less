@@ -1,0 +1,99 @@
+.page {
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', 'Segoe UI',
+    sans-serif;
+  transition: grid-template-columns 0.3s ease, background 0.3s ease, color 0.3s ease;
+
+  &.sidebarCollapsed {
+    grid-template-columns: 0 1fr;
+  }
+}
+
+.chatPane {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-width: 0;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  /* Keep the workspace clear; glass is applied only to local content surfaces. */
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+:global([data-theme='dark']) .chatPane {
+  background: transparent;
+}
+
+.messages {
+  min-height: 0;
+  padding: 28px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.composer {
+  display: flex;
+  justify-content: center;
+  padding: 0 28px 24px;
+}
+
+.floatingBtnGroup {
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  z-index: 100;
+  display: flex;
+  gap: 6px;
+}
+
+.floatingBtn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.floatingBtn:hover {
+  color: var(--text-primary);
+  background: var(--glass-hover);
+}
+
+@media (max-width: 760px) {
+  .page {
+    grid-template-columns: 1fr;
+
+    &.sidebarCollapsed {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .messages {
+    padding: 18px 12px;
+  }
+
+  .composer {
+    padding: 12px;
+  }
+}

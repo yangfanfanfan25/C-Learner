@@ -1,0 +1,143 @@
+/* ===== CSS Reset ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+body {
+  font-family:
+    'SF Pro Display',
+    'PingFang SC',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+/* ===== 暗黑模式 CSS 变量 ===== */
+[data-theme='dark'] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2a2a2a;
+  --bg-tertiary: #333333;
+  --bg-hover: #3a3a3a;
+  --bg-active: #404040;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-tertiary: #666666;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-color-light: rgba(255, 255, 255, 0.06);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-hover: rgba(255, 255, 255, 0.12);
+  --shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+  --bubble-user-bg: #2a2a2a;
+  --bubble-ai-bg: #333333;
+  --sidebar-bg: #1e1e1e;
+  --header-bg: #1e1e1e;
+  --input-bg: #2a2a2a;
+}
+
+/* ===== 亮色模式 CSS 变量 ===== */
+[data-theme='light'] {
+  --bg-primary: #f7f8fa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f5f5f5;
+  --bg-hover: #f0f0f0;
+  --bg-active: #e8e8e8;
+  --text-primary: #111111;
+  --text-secondary: #68707c;
+  --text-tertiary: #999999;
+  --border-color: rgba(17, 17, 17, 0.08);
+  --border-color-light: rgba(17, 17, 17, 0.04);
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(17, 17, 17, 0.08);
+  --glass-hover: rgba(17, 17, 17, 0.05);
+  --shadow: 0 10px 26px rgba(35, 39, 47, 0.06);
+  --bubble-user-bg: #111111;
+  --bubble-ai-bg: rgba(255, 255, 255, 0.92);
+  --sidebar-bg: rgba(255, 255, 255, 0.82);
+  --header-bg: rgba(255, 255, 255, 0.74);
+  --input-bg: #ffffff;
+}
+
+/* ===== 色彩变量 (兼容) ===== */
+:root {
+  --color-black: #111;
+  --color-dark: #333;
+  --color-gray-600: #666;
+  --color-gray-400: #999;
+  --color-gray-200: #ccc;
+  --color-gray-100: #e5e5e5;
+  --color-gray-50: #f5f5f5;
+  --color-white: #fff;
+
+  /* 图标低饱和色 */
+  --color-icon-blue: #6b7280;
+  --color-icon-green: #6b8f71;
+  --color-icon-purple: #7c7b8f;
+  --color-icon-orange: #8f7b6b;
+
+  /* 圆角 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* 动效 */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* ===== antd 全局覆盖 ===== */
+.ant-btn {
+  font-weight: 400;
+}

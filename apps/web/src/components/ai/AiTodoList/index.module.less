@@ -1,0 +1,268 @@
+.todo {
+  margin: 8px 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 12px 12px;
+  box-shadow: 0 0 0 1px #e6e8ec;
+}
+
+.todoHead {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: #1a1a1a;
+  font-size: 13px;
+  min-height: 22px;
+}
+
+.todoHeadIcon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex: none;
+  color: #a1a1a1;
+}
+
+.todoListIcon,
+.todoChevron,
+.todoHeadCheck {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition: opacity 140ms ease;
+}
+
+.todoHeadCheck {
+  width: 16px;
+  height: 16px;
+  color: #15a06a;
+}
+
+.todoChevron {
+  opacity: 0;
+  transition: opacity 140ms ease, transform 220ms ease;
+}
+
+.todoHead[aria-expanded='false'] .todoChevron {
+  transform: rotate(-90deg);
+}
+
+.todoHead:hover .todoListIcon,
+.todoHead:hover .todoHeadPie,
+.todoHead:hover .todoHeadCheck {
+  opacity: 0;
+}
+
+.todoHead:hover .todoChevron {
+  opacity: 1;
+}
+
+.todoTitle {
+  font-weight: 500;
+}
+
+.todoCount {
+  margin-left: auto;
+  color: #a1a1a1;
+  font-variant-numeric: tabular-nums;
+}
+
+.rollCount {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.rollDigit {
+  display: inline-block;
+  overflow: hidden;
+  height: 1em;
+  line-height: 1em;
+}
+
+.rollInner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rollInner span {
+  height: 1em;
+  line-height: 1em;
+}
+
+.rollInner.on {
+  transform: translateY(-1em);
+}
+
+.todoCollapsible {
+  display: grid;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transition: grid-template-rows 280ms ease, opacity 200ms ease;
+}
+
+.todoCollapsible.isCollapsed {
+  grid-template-rows: 0fr;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.todoInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.todoList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 0 0;
+}
+
+.todoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  line-height: 18px;
+  color: #a1a1a1;
+  animation: todo-item-in 360ms ease backwards;
+  animation-delay: calc(var(--i, 0) * 50ms);
+}
+
+@keyframes todo-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todoIconWrap {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex: none;
+  margin-top: 1px;
+}
+
+.todoIconPending,
+.todoIconOn {
+  position: absolute;
+  inset: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.todoIconPending {
+  color: #a1a1a1;
+}
+
+.todoIconOn {
+  color: #1a1a1a;
+}
+
+.todoItem.done .todoIconOn {
+  color: #15a06a;
+}
+
+.todoLabel {
+  position: relative;
+  font-weight: 400;
+  color: #a1a1a1;
+  transition: color 360ms ease;
+}
+
+.todoItem.active .todoLabel {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.todoItem.done .todoLabel {
+  color: #a1a1a1;
+  text-decoration: line-through;
+}
+
+.todoHeadPie {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  color: #1a1a1a;
+}
+
+.todoHeadPieFill {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(currentColor var(--todo-pie, 0%), transparent 0);
+  -webkit-mask: radial-gradient(circle, transparent 55%, #000 56%);
+  mask: radial-gradient(circle, transparent 55%, #000 56%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .todoItem {
+    animation: none;
+  }
+}
+
+:global([data-theme='dark']) .todo {
+  color: #f5f5f5;
+  background: #1a1a1a;
+  box-shadow: 0 0 0 1px #303030;
+}
+
+:global([data-theme='dark']) .todoHead {
+  color: #f5f5f5;
+}
+
+:global([data-theme='dark']) .todoHeadCheck {
+  color: #34d399;
+}
+
+:global([data-theme='dark']) .todoHeadIcon {
+  color: #737373;
+}
+
+:global([data-theme='dark']) .todoCount {
+  color: #737373;
+}
+
+:global([data-theme='dark']) .todoItem {
+  color: #737373;
+}
+
+:global([data-theme='dark']) .todoIconPending,
+:global([data-theme='dark']) .todoIconOn {
+  color: #737373;
+}
+
+:global([data-theme='dark']) .todoHeadPie {
+  color: #f5f5f5;
+}
+
+:global([data-theme='dark']) .todoItem.done .todoIconOn {
+  color: #34d399;
+}
+
+:global([data-theme='dark']) .todoItem.active .todoLabel {
+  color: #f5f5f5;
+}
+
+:global([data-theme='dark']) .todoLabel {
+  color: #737373;
+}
